@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task_01</title>
+</head>
+<body>
+Задача 1
+Создайте функцию, которая будет определять является ли введенная пользователем
+строка палиндромом.
+Палиндром - число, буквосочетание, слово или текст слева направо и справа налево
+читается одинаково. Например, 707, топот, оно, мадам и т.д.
+<script>
+    let userString = prompt("Введите строку");
+    let userArrey = userString.split(``);
+    // console.log(userArrey);
+    let userArreyRevers = userArrey.slice();
+
+    userArreyRevers.reverse();
+    // console.log(userArrey);
+    // console.log(userArreyRevers);
+
+    function equalArrays(a,b){
+        for (let i = 0; i < a.length; i++) {
+            if (a[i] != b[i]) return false;
+               return true;
+        }
+    }
+    let equal = equalArrays(userArrey, userArreyRevers);
+    if (equal)console.log("Введенное значение - полиндром");
+    else console.log("Введенное значение не является полиндромом");
+
+
+</script>
+</body>
+</html>

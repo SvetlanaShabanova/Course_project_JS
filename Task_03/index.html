@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task_03</title>
+</head>
+<body>
+<pre>Задача 3
+Игра «Как стать миллионером».
+Подумайте, как можно реализовать подобный сценарий с использованием массивов и
+объектов. Помните, что для каждого вопроса нужно прописать: вопрос, 4 варианта ответа, правильный ответ (который будем сравнивать с тем, что ввел пользователь, сумма которую выиграл пользователь). Определите минимум 5 вопросов. Вопросы с вариантами ответов вы можете придумать самостоятельно, а можете воспользоваться поиском</pre>
+<script>
+    let questionArray = [
+        {
+            question: "Возле какой горы-вулкана был впервые найден драгоценный камень танзанит? \n a) Фудзияма \n b) Килиманджаро \n c) Везувий \n d) Этна",
+            right: "b",
+            prize: 500,
+            fireproofPrize: false,
+            askQuestion: null,
+        },
+        {
+            question: "Какой головной убор был во время бала на Татьяне Лариной, героине романа «Евгений Онегин»? \n a) Шляпа \n b) Панама \n c) Вуаль \n d) Малиновый берет",
+            right: "d",
+            prize: 1000,
+            fireproofPrize: 0,
+            askQuestion: null,
+        },
+        {
+            question: "Какой продукт в разных странах называют папиной бородой и бабушкиными волосами? \n a) Сахарная вата \n b) Макароны \n c) Паста \n d) Ризотто",
+            right: "a",
+            prize: 2000,
+            fireproofPrize: 0,
+            askQuestion: null,
+        },
+
+        {
+            question: "Как называется красная тряпка в руках у матадора? \n a) Полотенце \n b) Платок \n c) Мулета \n d) Шарф",
+            right: "c",
+            prize: 3000,
+            fireproofPrize: 0,
+            askQuestion: null,
+        },
+        {
+            question: "Какое астрономическое явление жители Земли могут наблюдать раз в 75–76 лет? \n a) Появление кометы Галлея \n b) Солнечное затмение \n c) Солнцестояние \n d) Лунное затмение",
+            right: "a",
+            prize: 5000,
+            fireproofPrize: 5000,
+            askQuestion: null,
+        },
+        {
+            question: "Чьим детёнышем был пыжик, из меха которого в Советском Союзе делали зимние шапки? \n a) Норки \n b) Барсука \n c) Нутрии \n d) Северного оленя ",
+            right: "d",
+            prize: 8000,
+            fireproofPrize: 5000,
+            askQuestion: null,
+        },
+        {
+            question: "Скольким каратам соответствует чистое золото? \n a) 32 \n b) 24 \n c) 12 \n d) 56 ",
+            right: "b",
+            prize: 10000,
+            fireproofPrize: 5000,
+            askQuestion: null,
+        },
+        {
+            question: "Какая из планет Солнечной системы самая горячая? \n a) Плутон \n b) Нептун \n c) Венера \n d) Марс ",
+            right: "c",
+            prize: 13000,
+            fireproofPrize: 5000,
+            askQuestion: null,
+        },
+        {
+            question: "В каком немецком городе родилась будущая императрица России Екатерина II? \n a) Цербст \n b) Штеттин \n c) Мюнхен \n d) Байройт ",
+            right: "b",
+            prize: 15000,
+            fireproofPrize: 5000,
+            askQuestion: null,
+        },
+        {
+            question: "Как называют природный заповедник в отрогах Восточных Саян под Красноярском? \n a) Красноярские Столбы \n b) Красный \n c) Саянский \n d) Саянок ",
+            right: "a",
+            prize: 25000,
+            fireproofPrize: 25000,
+            askQuestion: null,
+        },
+        {
+            question: "Кем приходились друг другу толстый и тонкий из одноимённого рассказа Чехова? \n a) Коллегами \n b) Братьями \n c) Одноклассникамий \n d) Приятелями ",
+            right: "c",
+            prize: 50000,
+            fireproofPrize: 25000,
+            askQuestion: null,
+        },
+        {
+            question: "Название какого алкогольного напитка переводится с немецкого как «полынь»? \n a) Портвейн \n b) Ром \n c) Виски \n d) Вермут ",
+            right: "d",
+            prize: 100000,
+            fireproofPrize: 25000,
+            askQuestion: null,
+        },
+        {
+            question: "Кто амнистировал всех оставшихся в живых декабристов, сосланных на Кавказ и в Сибирь? \n a) Николай II \n b) Александр II \n c) Петр I \n d) Николай IV ",
+            right: "a",
+            prize: 250000,
+            fireproofPrize: 25000,
+            askQuestion: null,
+        },
+        {
+            question: "Из какого цветка получают шафран — одну из самых дорогих пряностей? \n a) Crocus sativus \n b) Петрушка \n c) Сельдерей \n d) Кинза ",
+            right: "a",
+            prize: 500000,
+            fireproofPrize: 25000,
+            askQuestion: null,
+        },
+        {
+            question: "В какое созвездие входит звезда Шаула, название которой переводится как «поднятый хвост»? \n a) Стрелец \n b) Большая медведица \n c) Близнецы \n d) Скорпион ",
+            right: "d",
+            prize: 1000000,
+            fireproofPrize: 25000,
+            askQuestion: null,
+        },
+    ]
+
+    let letter;
+    let userPrize = 0;
+
+
+    function askUser() {
+        letter = prompt(this.question);
+        let continueGame;
+        if (letter == this.right){
+            userPrize = this.prize;
+            continueGame = confirm(`Правильно! \n Ваш приз ${userPrize} \n Хотите продолжить игру?`);
+            return continueGame;
+        } else {
+            userPrize = this.fireproofPrize;
+            prompt(`Ответ не верный.\n Ваш приз: ${userPrize} \n Игра окончена.`)
+            continueGame = false;
+            return  continueGame;
+        }
+    }
+
+    for (let i = 0; i < questionArray.length; i++) {
+        const key = questionArray[i];
+        key.askQuestion = askUser;
+        let gameOver = key.askQuestion();
+        if (gameOver == false){
+            break;
+        }
+    }
+</script>
+</body>
+</html>
